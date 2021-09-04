@@ -10,6 +10,9 @@
 #include <errno.h>
 #include <linux/mtd/concat.h>
 
+#define CONFIG_SYS_MAX_NAND_DEVICE 1
+#define CONFIG_SYS_NAND_BASE 0x8000000
+
 #ifndef CONFIG_SYS_NAND_BASE_LIST
 #define CONFIG_SYS_NAND_BASE_LIST { CONFIG_SYS_NAND_BASE }
 #endif

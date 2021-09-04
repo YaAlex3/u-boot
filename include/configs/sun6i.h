@@ -22,4 +22,9 @@
  */
 #include <configs/sunxi-common.h>
 
+//#define CONFIG_USB_TTY 1
+//#define CONFIG_USBD_HS 1
+//#define CONFIG_SYS_CONSOLE_IS_IN_ENV 1
+//#define CONFIG_USB_DEVICE 1
+
 #endif /* __CONFIG_H */

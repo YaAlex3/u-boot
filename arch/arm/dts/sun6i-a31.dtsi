@@ -563,6 +563,19 @@
 			#reset-cells = <1>;
 		};
 
+        nfc: nand@01c03000 {
+			compatible = "allwinner,sun4i-a10-nand";
+			reg = <0x01c03000 0x1000>;
+			interrupts = <GIC_SPI 37 IRQ_TYPE_LEVEL_HIGH>;
+			clocks = <&ccu CLK_AHB1_NAND0>, <&ccu CLK_NAND0>;
+			clock-names = "ahb", "mod";
+            dmas = <&dma 5>;
+			dma-names = "rxtx";
+			status = "disabled";
+			#address-cells = <1>;
+			#size-cells = <0>;
+        };
+
 		pio: pinctrl@1c20800 {
 			compatible = "allwinner,sun6i-a31-pinctrl";
 			reg = <0x01c20800 0x400>;
@@ -685,7 +698,85 @@
 				bias-pull-up;
 			};
 
-			spdif_pins_a: spdif@0 {
+            nand_pins_a: nand0_pins@0 {
+				pins = "PC0", "PC1", "PC2",
+						"PC5", "PC8", "PC9", "PC10",
+						"PC11", "PC12", "PC13", "PC14",
+						"PC15", "PC24";
+				function = "nand0";
+			};
+
+
+			nand_cs0_pins_a: nand0_cs@0 {
+				pins = "PC4";
+				function = "nand0";
+			};
+
+			nand_cs1_pins_a: nand0_cs@1 {
+				pins = "PC3";
+				function = "nand0";
+			};
+
+			nand_cs2_pins_a: nand0_cs@2 {
+				pins = "PC25";
+				function = "nand0";
+			};
+
+			nand_cs3_pins_a: nand0_cs@3 {
+				pins = "PC26";
+				function = "nand0";
+			};
+
+			nand_rb0_pins_a: nand0_rb@0 {
+				pins = "PC6";
+				function = "nand0";
+			};
+
+			nand_rb1_pins_a: nand0_rb@1 {
+				pins = "PC7";
+				function = "nand0";
+			};
+
+            nand_pins_b: nand1_pins@0 {
+				pins = "PH0", "PH1", "PH2",
+						"PH5", "PC16", "PC17", "PC18",
+						"PC19", "PC20", "PC21", "PC22",
+						"PC23", "PH8";
+				function = "nand0";
+			};
+
+
+			nand_cs0_pins_b: nand1_cs@0 {
+				pins = "PH4";
+				function = "nand1";
+			};
+
+			nand_cs1_pins_b: nand1_cs@1 {
+				pins = "PH3";
+				function = "nand0";
+			};
+
+			nand_cs2_pins_b: nand1_cs@2 {
+				pins = "PH29";
+				function = "nand0";
+			};
+
+			nand_cs3_pins_b: nand1_cs@3 {
+				pins = "PH30";
+				function = "nand0";
+			};
+
+			nand_rb0_pins_b: nand1_rb@0 {
+				pins = "PH6";
+				function = "nand0";
+			};
+
+			nand_rb1_pins_b: nand1_rb@1 {
+				pins = "PH7";
+				function = "nand0";
+			};
+
+            spdif_pins_a: spdif@0 {
 				pins = "PH28";
 				function = "spdif";
 			};
